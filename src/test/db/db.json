@@ -1,0 +1,84 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Post 1",
+      "description": "Lorem ipsum dolor sit amet",
+      "imageUrl": "https://picsum.photos/200",
+      "author": "Bobby"
+    },
+    {
+      "id": 2,
+      "title": "Post 2",
+      "description": "Lorem ipsum dolor sit amet",
+      "imageUrl": "https://picsum.photos/201",
+      "author": "Bobby"
+    },
+    {
+      "id": 3,
+      "title": "Post 3",
+      "description": "Lorem ipsum dolor sit amet",
+      "imageUrl": "https://picsum.photos/202",
+      "author": "Bobby"
+    },
+    {
+      "id": 4,
+      "title": "Post 4",
+      "description": "Lorem ipsum dolor sit amet",
+      "imageUrl": "https://picsum.photos/204",
+      "author": "Bobby"
+    },
+    {
+      "id": 5,
+      "title": "Post 5",
+      "description": "Lorem ipsum dolor sit amet",
+      "imageUrl": "https://picsum.photos/205",
+      "author": "Bobby"
+    },
+    {
+      "id": 6,
+      "title": "Post 6",
+      "description": "Lorem ipsum dolor sit amet",
+      "imageUrl": "https://picsum.photos/206",
+      "author": "Bobby"
+    },
+    {
+      "id": 7,
+      "title": "Post 7",
+      "description": "Lorem ipsum dolor sit amet",
+      "imageUrl": "https://picsum.photos/207",
+      "author": "Bobby"
+    },
+    {
+      "id": 8,
+      "title": "Post 8",
+      "description": "Lorem ipsum dolor sit amet",
+      "imageUrl": "https://picsum.photos/208",
+      "author": "Bobby"
+    },
+    {
+      "id": 9,
+      "title": "Post 9",
+      "description": "Lorem ipsum dolor sit amet",
+      "imageUrl": "https://picsum.photos/209",
+      "author": "Bobby"
+    },
+    {
+      "id": 10,
+      "title": "dsfas",
+      "body": "dsfasdfa",
+      "image": "https://picsum.photos/207",
+      "author": "dddd"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postid": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,89 +1,51 @@
-import React, { useState } from 'react';
-import {PostForm} from '../PostForm/PostForm.jsx'
+import React from 'react';
+import { useEffect } from 'react';
+import { createPostAction, deletePostAction, fetchPostsAction } from '../../store/actions/posts.action.js';
+import { createPostAsync, deletePostAsync } from '../API.js';
+import {PostForm} from '../PostForm/PostForm.jsx';
+import { useDispatch, useSelector } from 'react-redux';
 
 export function PostDashboard() {
 
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: 'Post 1',
-      description: 'Lorem ipsum dolor sit amet',
-      imageUrl: 'https://picsum.photos/200',
-      author: 'Bobby',
-    },
-    {
-      id: 2,
-      title: 'Post 2',
-      description: 'Lorem ipsum dolor sit amet',
-      imageUrl: 'https://picsum.photos/201',
-      author: 'Bobby',
-    },
-    {
-      id: 3,
-      title: 'Post 3',
-      description: 'Lorem ipsum dolor sit amet',
-      imageUrl: 'https://picsum.photos/202',
-      author: 'Bobby',
-    },
-    {
-      id: 4,
-      title: 'Post 4',
-      description: 'Lorem ipsum dolor sit amet',
-      imageUrl: 'https://picsum.photos/204',
-      author: 'Bobby',
-    },
-    {
-      id: 5,
-      title: 'Post 5',
-      description: 'Lorem ipsum dolor sit amet',
-      imageUrl: 'https://picsum.photos/205',
-      author: 'Bobby',
-    },
-    {
-      id: 6,
-      title: 'Post 6',
-      description: 'Lorem ipsum dolor sit amet',
-      imageUrl: 'https://picsum.photos/206',
-      author: 'Bobby',
-    },
-    {
-      id: 7,
-      title: 'Post 7',
-      description: 'Lorem ipsum dolor sit amet',
-      imageUrl: 'https://picsum.photos/207',
-      author: 'Bobby',
-    },
-    {
-      id: 8,
-      title: 'Post 8',
-      description: 'Lorem ipsum dolor sit amet',
-      imageUrl: 'https://picsum.photos/208',
-      author: 'Bobby',
-    },
-    {
-      id: 9,
-      title: 'Post 9',
-      description: 'Lorem ipsum dolor sit amet',
-      imageUrl: 'https://picsum.photos/209',
-      author: 'Bobby',
+  const posts = useSelector((state) => state.posts.items);
+  const dispatch = useDispatch();
+
+  async function initPosts() {
+    try {
+      dispatch(fetchPostsAction());
+    } catch (e) {
+      console.log(e);
     }
-  ]);
+  }
 
-  const addPost = (post) => {
-    const newPost = { id: posts.length + 1, ...post };
-    setPosts([...posts, newPost]);
+  useEffect( () => {
+    initPosts();
+  }, []);
+
+  async function addPost (post) {
+    try {
+      const newPost = { id: posts.length + 1, ...post };
+      const createdPost = await createPostAsync(newPost);
+      dispatch(createPostAction(createdPost));
+    } catch (e) {
+      console.warn(e);
+    }
   };
 
-  const deletePost = (id) => {
-    const updatedPosts = posts.filter((post) => post.id !== id);
-    setPosts(updatedPosts);
-  };
+  async function deletePost(id) {
+    try {
+      await deletePostAsync(id);
+      dispatch(deletePostAction(id));
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   return (
     <div className="post-dashboard">
       <p>All Posts</p>
       <div className="post-list">
-        {posts.map((post) => (
+        {posts?.map((post) => (
           <div key={post.id} className="post-item" style={{ backgroundImage: `url(${post.imageUrl})` }}>
             <button className="delete-button" onClick={() => deletePost(post.id)} >X</button>
             <h2>{post.title}</h2>
