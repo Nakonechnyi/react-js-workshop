@@ -22,11 +22,11 @@
       "author": "Bobby"
     },
     {
-      "id": 4,
       "title": "Post 4",
-      "description": "Lorem ipsum dolor sit amet",
+      "body": "",
       "imageUrl": "https://picsum.photos/204",
-      "author": "Bobby"
+      "author": "Bobby Avc",
+      "id": 4
     },
     {
       "id": 5,
@@ -65,10 +65,17 @@
     },
     {
       "id": 10,
-      "title": "dsfas",
-      "body": "dsfasdfa",
-      "image": "https://picsum.photos/207",
-      "author": "dddd"
+      "title": "t",
+      "body": "b",
+      "imageUrl": "https://picsum.photos/208",
+      "author": "a2"
+    },
+    {
+      "title": "1",
+      "body": "2",
+      "imageUrl": "https://picsum.photos/218",
+      "author": "4",
+      "id": 11
     }
   ],
   "comments": [
